@@ -1,6 +1,7 @@
 package rtc.nuttamon.kantana.monopolygame;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,7 @@ public class PlayGame extends AppCompatActivity {
     private String[] questionStrings, choice1Strings, choice2Strings,
             choice3Strings, choice4Strings, answerStrings;
     private ImageView[] termoImageViews = new ImageView[8];
+    private int[] soundInts = new int[]{R.raw.ok1, R.raw.no1, R.raw.game_over};
 
 
     @Override
@@ -61,6 +63,7 @@ public class PlayGame extends AppCompatActivity {
 
         //To Do
         if (myTime == 180) {
+            soundEffect(soundInts[2]);
             aBoolean = false;
             Intent intent = new Intent(PlayGame.this, ShowScore.class);
             intent.putExtra("Score", scoreAnInt);
@@ -130,6 +133,11 @@ public class PlayGame extends AppCompatActivity {
                 if (myChoose == Integer.parseInt(answerStrings[timesAnInt])) {
                     scoreAnInt += 1;
                     showScoreTextView.setText("คะแนน = " + Integer.toString(scoreAnInt));
+
+                    soundEffect(soundInts[0]);
+
+                } else {
+                    soundEffect(soundInts[1]);
                 }
 
                 checkTermoImage();
@@ -146,6 +154,19 @@ public class PlayGame extends AppCompatActivity {
 
 
     }   // buttonController
+
+    private void soundEffect(int soundInt) {
+
+
+        final MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(), soundInt);
+        mediaPlayer.start();
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                mediaPlayer.release();
+            }
+        });
+    }
 
     private void checkTermoImage() {
 

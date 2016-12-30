@@ -6,21 +6,21 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/answer"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StartGame" />
-        <activity android:name=".PlayGame" />
-        <activity android:name=".Score" />
-        <activity android:name=".ShowScore"></activity>
+        <activity android:name=".StartGame" android:screenOrientation="portrait"/>
+        <activity android:name=".PlayGame" android:screenOrientation="portrait"/>
+        <activity android:name=".Score" android:screenOrientation="portrait"/>
+        <activity android:name=".ShowScore" android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
