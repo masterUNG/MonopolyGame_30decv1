@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Monopoly Game</string>
+    <string name="score">คะแนน = 0</string>
+</resources>
