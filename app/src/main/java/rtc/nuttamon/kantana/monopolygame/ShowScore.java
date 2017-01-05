@@ -33,7 +33,7 @@ public class ShowScore extends AppCompatActivity implements View.OnClickListener
     public void onClick(View view) {
 
         if (view.getId() == R.id.imageView14) {
-            startActivities(new Intent(ShowScore.this, PlayGame.class));
+            startActivity(new Intent(ShowScore.this, PlayGame.class));
         }
 
 
